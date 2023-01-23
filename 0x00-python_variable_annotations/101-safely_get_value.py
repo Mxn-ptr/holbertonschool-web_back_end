@@ -3,7 +3,11 @@
 from typing import TypeVar, Mapping, Any, Union
 
 
-def safely_get_value(dct: Mapping, key: Any, default: Union[TypeVar('T'), None] = None) -> Union[(Any, TypeVar('T'))]:
+T = TypeVar('T')
+
+
+def safely_get_value(dct: Mapping, key: Any,
+                     default: Union[T, None] = None) -> Union[(Any, T)]:
     """ Return the value """
     if key in dct:
         return dct[key]
