@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Create a class MRUCache that inherits from BaseCaching and is a caching system """
+""" Create a class MRUCache """
 BaseCaching = __import__("base_caching").BaseCaching
 
 
@@ -12,7 +12,7 @@ class MRUCache(BaseCaching):
 
     def put(self, key, item):
         """ Assign the item value for the key to the dictionary """
-        if key is not None or item is not None:
+        if key and item:
             if key in self.cache_data:
                 self.cache_data[key] = item
                 self.cache.remove(key)
