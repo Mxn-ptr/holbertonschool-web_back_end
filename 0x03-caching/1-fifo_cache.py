@@ -8,13 +8,13 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """ Assign the item value for the key to the dictionary """
         if key and item:
-            self.cache_data[key] = item
             if key in self.cache_data:
                 self.cache_data[key] = item
             elif len(self.cache_data) >= self.MAX_ITEMS:
                 index = list(self.cache_data.keys())[0]
                 print("DISCARD: {}".format(index))
                 self.cache_data.pop(index)
+            self.cache_data[key] = item
 
     def get(self, key):
         """ Return the value of key in the dictionary """
