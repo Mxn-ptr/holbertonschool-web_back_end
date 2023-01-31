@@ -44,7 +44,7 @@ class Server:
         page_size with default value of 10."""
         assert isinstance(index, int)
         assert isinstance(page_size, int)
-        assert 0 <= index < len(self.dataset())      
+        assert 0 <= index < len(self.dataset())
         dataset = self.indexed_dataset()
         data = []
         next_index = index
