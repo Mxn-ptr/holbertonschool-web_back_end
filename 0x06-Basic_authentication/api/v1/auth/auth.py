@@ -12,6 +12,11 @@ class Auth:
             return True
         if path[-1] != '/':
             path += '/'
+        for exclu in excluded_paths:
+            if '*' in exclu:
+                index = exclu.find('*')
+                if exclu[:index] == path[:index]:
+                    return False
         if path in excluded_paths:
             return False
         return True
