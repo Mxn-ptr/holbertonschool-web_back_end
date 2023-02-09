@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ Module for the session auth """
 from api.v1.auth.auth import Auth
 from models.user import User
