@@ -21,7 +21,7 @@ class SessionExpAuth(SessionAuth):
             return None
         session_directory = {
             "user_id": user_id,
-            "created_at": datetime.now()
+            "created_at": datetime.datetime.now()
         }
         self.user_id_by_session_id[session_id] = session_directory
         return session_id
@@ -43,6 +43,6 @@ class SessionExpAuth(SessionAuth):
         created = session_directory.get('created_at')
         time = datetime.timedelta(seconds=self.session_duration)
         expiration = created + time
-        if expiration < datetime.now():
+        if expiration < datetime.datetime.now():
             return None
         return session_directory.get('user_id')
