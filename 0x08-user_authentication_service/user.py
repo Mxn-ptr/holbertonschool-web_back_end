@@ -7,6 +7,7 @@ Base = declarative_base()
 
 
 class User(Base):
+    """ User """
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
