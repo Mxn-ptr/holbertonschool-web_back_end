@@ -64,7 +64,7 @@ def reset_password_token(email: str) -> str:
     data = {
         "email": email
     }
-    res = requests.get("{}/reset_password".format(URL), data=data)
+    res = requests.post("{}/reset_password".format(URL), data=data)
     assert res.status_code == 200
     payload = json.loads(res.content)
     return payload["reset_token"]
