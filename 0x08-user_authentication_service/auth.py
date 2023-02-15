@@ -49,7 +49,7 @@ class Auth:
             self._db.update_user(user.id, session_id=id)
             return id
         except NoResultFound:
-            return None
+            return ""
 
     def get_user_from_session_id(self, session_id: str) -> User:
         """ Get user from session id """
