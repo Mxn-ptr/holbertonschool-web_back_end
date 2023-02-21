@@ -40,3 +40,12 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(result, patched.return_value)
             mocked.assert_called_once()
             patched.assert_called_once()
+
+    @parameterized.expand([
+        ({"license": {"key": "my_license"}}, "my_license", True),
+        ({"license": {"key": "other_license"}}, "my_license", False)
+    ])
+    def test_has_license(self, repo, license_key, expected):
+        """ Test """
+        test = GithubOrgClient('test')
+        self.assertEqual(test.has_license(repo, license_key), expected)
