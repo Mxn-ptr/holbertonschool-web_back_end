@@ -32,11 +32,11 @@ def get_locale():
     if language and language in app.config['LANGUAGES']:
         return language
 
-    if g.user:
+    elif g.user:
         language = g.user["locale"]
         return language
 
-    if request.locale:
+    elif request.locale:
         language = request.locale
         return language
 
