@@ -4,6 +4,8 @@ from flask import Flask, render_template, request, g
 from flask_babel import Babel
 from pytz import timezone
 from pytz.exceptions import UnknownTimeZoneError
+from datetime import datetime
+import locale
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -42,7 +44,7 @@ def get_locale():
     language = request.args.get('locale')
     if language and language in app.config['LANGUAGES']:
         return language
-    elif user and user.get('locale'):
+    elif user and user.get('locale') in app.config['LANGUAGES']:
         return user.get('locale')
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
@@ -60,8 +62,7 @@ def get_timezone():
         valid = is_valid_timezone(user.get('timezone'))
         if valid:
             return valid
-    else:
-        return timezone(app.config['BABEL_DEFAULT_TIMEZONE'])
+    return timezone(app.config['BABEL_DEFAULT_TIMEZONE'])
 
 
 def get_user():
@@ -79,9 +80,23 @@ def before_request():
     user = get_user()
     if user:
         g.user = user
+    time = get_timezone()
+    print(time)
+    utc_dt = datetime.now()
+    au_tz = time
+    au_dt = utc_dt.astimezone(au_tz)
+    if get_locale() == 'en':
+        locale.setlocale(locale.LC_TIME,"en_US.UTF-8")
+        fmt = '%b %d, %Y, %I:%M:%S %p'
+    elif get_locale() == 'fr':
+        locale.setlocale(locale.LC_TIME,"fr_FR.UTF-8")
+        fmt = '%d %b %Y à %H:%M:%S'
+    au_dt = au_dt.strftime(fmt)
+    print(au_dt)
+    g.current_time = au_dt
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
 def index():
     """ Return a template """
-    return render_template('7-index.html')
+    return render_template('index.html')
