@@ -30,14 +30,13 @@ def get_locale():
     """ return the accept languages """
     language = request.args.get('locale')
     if language and language in app.config['LANGUAGES']:
-        return language
+        lang = language
+    elif g.user and g.user['locale'] in app.config['LANGUAGES']:
+        lang = g.user['locale']
+    else:
+        lang = request.accept_languages.best_match(app.config['LANGUAGES'])
+    return lang
 
-    if g.user:
-        language = g.user.get("locale")
-        if language and language in app.config['LANGUAGES']:
-            return language
-
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 def get_user():
