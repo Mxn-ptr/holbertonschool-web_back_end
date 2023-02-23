@@ -33,6 +33,7 @@ def get_locale():
         return language
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 def get_user():
     """ Get the user_id """
     id = request.args.get('login_as')
@@ -40,6 +41,7 @@ def get_user():
         id = int(id)
         return users.get(id)
     return None
+
 
 @app.before_request
 def before_request():
