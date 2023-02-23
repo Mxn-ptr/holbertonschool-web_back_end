@@ -31,10 +31,8 @@ def get_locale():
     language = request.args.get('locale')
     if language and language in app.config['LANGUAGES']:
         lang = language
-    elif g.user and g.user['locale'] in app.config['LANGUAGES']:
-        lang = g.user['locale']
     else:
-        lang = Config.BABEL_DEFAULT_LOCALE
+        lang = request.accept_languages.best_match(app.config['LANGUAGES'])
     return lang
 
 
