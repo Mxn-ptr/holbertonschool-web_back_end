@@ -15,10 +15,12 @@ def count(method: Callable) -> Callable:
     def wrapper(url):
         """ wrapper method """
         count_key = f"count:{url}"
-        count = red.incr(count_key)
-        if count == 1:
-            red.expire(count_key, 10)
+        red.incr(count_key)
+        count = red.get(count_key)
+        if count:
+            return count.decode('utf-8')
         res = method(url)
+        red.expire(count_key, 10)
         return res
 
     return wrapper
