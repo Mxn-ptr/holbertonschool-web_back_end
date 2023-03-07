@@ -15,10 +15,10 @@ def count(method: Callable) -> Callable:
     def wrapper(url):
         """ wrapper method """
         count_key = f"count:{url}"
+        cached_key = f"cached:{url}"
         red.incr(count_key)
-        # Add more time for checker
-        red.expire(count_key, 20)
         res = method(url)
+        red.setex(cached_key, 10, res)
         return res
 
     return wrapper
