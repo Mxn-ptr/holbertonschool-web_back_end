@@ -9,7 +9,10 @@ red = redis.Redis()
 def get_page(url: str):
     """ Track how many times a particular URL
      was accessed in the key "count:{url}" """
-    red.incr("cached:{}".format(url))
+    count_key = f"count:{url}"
+    count = red.incr(count_key)
+    if count == 1:
+        red.expire(count_key, 10)
+
     res = requests.get(url)
-    red.setex("cached:{}".format(url), 10, red.get("cached:{}".format(url)))
     return res.text
