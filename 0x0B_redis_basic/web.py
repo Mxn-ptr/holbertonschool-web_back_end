@@ -16,11 +16,8 @@ def count(method: Callable) -> Callable:
         """ wrapper method """
         count_key = f"count:{url}"
         red.incr(count_key)
-        count = red.get(count_key)
-        if count:
-            return count.decode('utf-8')
+        red.expire(count_key, 20) # Add more time for checker
         res = method(url)
-        red.expire(count_key, 10)
         return res
 
     return wrapper
