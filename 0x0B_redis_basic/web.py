@@ -16,7 +16,8 @@ def count(method: Callable) -> Callable:
         """ wrapper method """
         count_key = f"count:{url}"
         red.incr(count_key)
-        red.expire(count_key, 20) # Add more time for checker
+        # Add more time for checker
+        red.expire(count_key, 20)
         res = method(url)
         return res
 
