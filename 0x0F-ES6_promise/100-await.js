@@ -5,11 +5,11 @@ export default async function asyncUploadUser() {
     return {
       photo: await uploadPhoto(),
       user: await createUser(),
-    }
+    };
   } catch (error) {
     return {
       photo: null,
       user: null,
-    }
+    };
   }
 }
