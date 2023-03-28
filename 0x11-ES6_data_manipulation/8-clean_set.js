@@ -5,7 +5,7 @@ export default function cleanSet(set, startString) {
 
   const list = [];
   set.forEach((e) => {
-    if (e.startsWith(startString)) list.push(e.replace(startString, ''));
+    if (e && e.startsWith(startString)) list.push(e.replace(startString, ''));
     return e;
   });
   return list.join('-');
