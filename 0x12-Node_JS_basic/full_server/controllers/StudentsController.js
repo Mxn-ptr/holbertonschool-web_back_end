@@ -11,6 +11,7 @@ export default class StudentsController {
             line += `\nNumber of students in ${field}: ${e.count}. ${e.students}`;
           }
         }
+        response.set('Connection', 'close');
         response.end(line);
       })
       .catch((err) => response.status(500).send(err.message));
