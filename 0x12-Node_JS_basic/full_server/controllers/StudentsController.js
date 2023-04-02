@@ -13,7 +13,7 @@ module.exports = class StudentsController {
         }
         response.send(line);
       })
-      .catch((err) => response.send(err.message));
+      .catch((err) => response.status(500).send(err.message));
   }
 
   static getAllStudentsByMajor(request, response, database) {
