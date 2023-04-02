@@ -1,6 +1,6 @@
-const readDatabase = require('../utils');
+import readDatabase from '../utils';
 
-module.exports = class StudentsController {
+export default class StudentsController {
   static getAllStudents(request, response, database) {
     readDatabase(database)
       .then((data) => {
@@ -29,4 +29,4 @@ module.exports = class StudentsController {
         .catch((err) => response.status(500).send(err.message));
     }
   }
-};
+}
