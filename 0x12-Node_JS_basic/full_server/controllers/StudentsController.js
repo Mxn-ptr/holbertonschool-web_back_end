@@ -11,7 +11,7 @@ module.exports = class StudentsController {
             line += `\nNumber of students in ${field}: ${e.count}. ${e.students}`;
           }
         }
-        response.send(line);
+        response.status(200).send(line);
       })
       .catch((err) => response.status(500).send(err.message));
   }
@@ -22,7 +22,7 @@ module.exports = class StudentsController {
     }
     readDatabase(database)
       .then((data) => {
-        response.send(data[request.params.major].students);
+        response.status(200).send(data[request.params.major].students);
       })
       .catch((err) => response.status(500).send(err.message));
   }
