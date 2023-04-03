@@ -16,7 +16,8 @@ export default function readDatabase(path) {
         if (fieldStudent !== 'field') field.add(fieldStudent);
       });
       const all = {};
-      field.forEach((f) => {
+      const fieldSort = Array.from(field).sort();
+      fieldSort.forEach((f) => {
         const students = lines.filter((line) => line.split(',')[3] === f);
         all[f] = {
           students: `List: ${students.map((student) => student.split(',')[0]).join(', ')}`,
