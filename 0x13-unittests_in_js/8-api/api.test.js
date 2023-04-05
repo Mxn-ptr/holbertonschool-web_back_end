@@ -7,8 +7,9 @@ describe('Index page', () => {
       if (response) {
         expect(response.statusCode).to.equal(200);
         expect(response.statusMessage).to.equal('OK');
+        expect(response.request.method).to.equal('GET');
         expect(body).to.equal('Welcome to the payment system');
       }
     });
-  })
-})
+  });
+});
