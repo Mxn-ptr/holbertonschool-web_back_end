@@ -27,26 +27,26 @@ describe('calculateNumber with type === SUM', () => {
   });
 });
 
-describe('calculateNumber with type === SUBSTRACT', () => {
+describe('calculateNumber with type === SUBTRACT', () => {
   it('checks output with positive numbers', () => {
-    expect(calculateNumber('SUBSTRACT', 0, 0)).to.equal(0);
-    expect(calculateNumber('SUBSTRACT', 1, 3)).to.equal(-2);
-    expect(calculateNumber('SUBSTRACT', 7, 2)).to.equal(5);
-    expect(calculateNumber('SUBSTRACT', 2.6, 2)).to.equal(1);
-    expect(calculateNumber('SUBSTRACT', 20.1, 8.8)).to.equal(11);
-    expect(calculateNumber('SUBSTRACT', 1, 9.1)).to.equal(-8);
+    expect(calculateNumber('SUBTRACT', 0, 0)).to.equal(0);
+    expect(calculateNumber('SUBTRACT', 1, 3)).to.equal(-2);
+    expect(calculateNumber('SUBTRACT', 7, 2)).to.equal(5);
+    expect(calculateNumber('SUBTRACT', 2.6, 2)).to.equal(1);
+    expect(calculateNumber('SUBTRACT', 20.1, 8.8)).to.equal(11);
+    expect(calculateNumber('SUBTRACT', 1, 9.1)).to.equal(-8);
   });
   it('checks ouput with negative numbers', () => {
-    expect(calculateNumber('SUBSTRACT', -1, 0)).to.equal(-1);
-    expect(calculateNumber('SUBSTRACT', -7, -2)).to.equal(-5);
-    expect(calculateNumber('SUBSTRACT', -1.1, -7.9)).to.equal(7);
-    expect(calculateNumber('SUBSTRACT', -2.5, 0)).to.equal(-2);
-    expect(calculateNumber('SUBSTRACT', -12, 14.3)).to.equal(-26);
+    expect(calculateNumber('SUBTRACT', -1, 0)).to.equal(-1);
+    expect(calculateNumber('SUBTRACT', -7, -2)).to.equal(-5);
+    expect(calculateNumber('SUBTRACT', -1.1, -7.9)).to.equal(7);
+    expect(calculateNumber('SUBTRACT', -2.5, 0)).to.equal(-2);
+    expect(calculateNumber('SUBTRACT', -12, 14.3)).to.equal(-26);
   });
   it('checks with wrong argument', () => {
-    expect(calculateNumber('SUBSTRACT', "a", 14.3)).to.be.NaN;
-    expect(calculateNumber('SUBSTRACT', 2, NaN)).to.be.NaN;
-    expect(calculateNumber('SUBSTRACT', NaN, NaN)).to.be.NaN;
+    expect(calculateNumber('SUBTRACT', "a", 14.3)).to.be.NaN;
+    expect(calculateNumber('SUBTRACT', 2, NaN)).to.be.NaN;
+    expect(calculateNumber('SUBTRACT', NaN, NaN)).to.be.NaN;
   });
 });
 

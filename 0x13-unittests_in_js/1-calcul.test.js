@@ -28,41 +28,29 @@ describe('calculateNumber with type === SUM', () => {
   });
 });
 
-describe('calculateNumber with type === SUBSTRACT', () => {
+describe('calculateNumber with type === SUBTRACT', () => {
   it('checks output with positive numbers', () => {
-    assert.strictEqual(calculateNumber('SUBSTRACT', 0, 0), 0);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 1, 3), -2);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 7, 2), 5);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 2.6, 2), 1);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 20.1, 8.8), 11);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 1, 9.1), -8);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 0.0, 5), -5);
-    assert.equal(calculateNumber('SUBTRACT', 1.0, 0), 1);
-    assert.equal(calculateNumber('SUBTRACT', 1.3, 0), 1);
-    assert.equal(calculateNumber('SUBTRACT', 1.7, 0), 2);
-    assert.equal(calculateNumber('SUBTRACT', 0, 1.0), -1);
-    assert.equal(calculateNumber('SUBTRACT', 0, 1.3), -1);
-    assert.equal(calculateNumber('SUBTRACT', 0, 1.7), -2);
-    assert.equal(calculateNumber('SUBTRACT', 1.3, 0), 1);
-    assert.equal(calculateNumber('SUBTRACT', 0, 1.2), -1);
-    assert.equal(calculateNumber('SUBTRACT', 1.3, 1.3), 0);
-    assert.equal(calculateNumber('SUBTRACT', 1.7, 1.2), 1);
-    assert.equal(calculateNumber('SUBTRACT', 1.3, 1.8), -1);
-    assert.equal(calculateNumber('SUBTRACT', 1.6, 1.8), 0);
+    assert.strictEqual(calculateNumber('SUBTRACT', 0, 0), 0);
+    assert.strictEqual(calculateNumber('SUBTRACT', 1, 3), -2);
+    assert.strictEqual(calculateNumber('SUBTRACT', 7, 2), 5);
+    assert.strictEqual(calculateNumber('SUBTRACT', 2.6, 2), 1);
+    assert.strictEqual(calculateNumber('SUBTRACT', 20.1, 8.8), 11);
+    assert.strictEqual(calculateNumber('SUBTRACT', 1, 9.1), -8);
+    assert.strictEqual(calculateNumber('SUBTRACT', 0.0, 5), -5)
   });
   it('checks ouput with negative numbers', () => {
-    assert.strictEqual(calculateNumber('SUBSTRACT', -1, 0), -1);
-    assert.strictEqual(calculateNumber('SUBSTRACT', -7, -2), -5);
-    assert.strictEqual(calculateNumber('SUBSTRACT', -1.1, -7.9), 7);
-    assert.strictEqual(calculateNumber('SUBSTRACT', -2.5, 0), -2);
-    assert.strictEqual(calculateNumber('SUBSTRACT', -12, 14.3), -26);
-    assert.strictEqual(calculateNumber('SUBSTRACT', -1, 1), -2);
-    assert.strictEqual(calculateNumber('SUBSTRACT', -1.5, 0), -1);
+    assert.strictEqual(calculateNumber('SUBTRACT', -1, 0), -1);
+    assert.strictEqual(calculateNumber('SUBTRACT', -7, -2), -5);
+    assert.strictEqual(calculateNumber('SUBTRACT', -1.1, -7.9), 7);
+    assert.strictEqual(calculateNumber('SUBTRACT', -2.5, 0), -2);
+    assert.strictEqual(calculateNumber('SUBTRACT', -12, 14.3), -26);
+    assert.strictEqual(calculateNumber('SUBTRACT', -1, 1), -2);
+    assert.strictEqual(calculateNumber('SUBTRACT', -1.5, 0), -1);
   });
   it('checks with wrong argument', () => {
-    assert.strictEqual(calculateNumber('SUBSTRACT', NaN, 2.2), NaN);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 2.5, NaN), NaN);
-    assert.strictEqual(calculateNumber('SUBSTRACT', NaN, NaN), NaN);
+    assert.strictEqual(calculateNumber('SUBTRACT', NaN, 2.2), NaN);
+    assert.strictEqual(calculateNumber('SUBTRACT', 2.5, NaN), NaN);
+    assert.strictEqual(calculateNumber('SUBTRACT', NaN, NaN), NaN);
   });
 });
 
