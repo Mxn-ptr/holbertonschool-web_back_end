@@ -11,6 +11,7 @@ describe('calculateNumber', () => {
     assert.strictEqual(calculateNumber(0.4, 8), 8);
     assert.strictEqual(calculateNumber(10, 2.7), 13);
     assert.strictEqual(calculateNumber(9.1, 9.9), 19);
+    assert.strictEqual(calculateNumber(0.1, 0.2), 0);
   });
   it('checks output with negative numbers', () => {
     assert.strictEqual(calculateNumber(-1, -2), -3);
@@ -21,8 +22,8 @@ describe('calculateNumber', () => {
     assert.strictEqual(calculateNumber(-1, 2.6), 2);
   });
   it('checks output with wrong argument', () => {
-    assert.strictEqual(calculateNumber('a', 8.4), NaN);
     assert.strictEqual(calculateNumber(NaN, 3.6), NaN);
+    assert.strictEqual(calculateNumber(3.6, NaN), NaN);
     assert.strictEqual(calculateNumber(NaN, NaN), NaN);
   });
 });
