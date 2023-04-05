@@ -37,6 +37,18 @@ describe('calculateNumber with type === SUBSTRACT', () => {
     assert.strictEqual(calculateNumber('SUBSTRACT', 20.1, 8.8), 11);
     assert.strictEqual(calculateNumber('SUBSTRACT', 1, 9.1), -8);
     assert.strictEqual(calculateNumber('SUBSTRACT', 0.0, 5), -5);
+    assert.equal(calculateNumber('SUBTRACT', 1.0, 0), 1);
+    assert.equal(calculateNumber('SUBTRACT', 1.3, 0), 1);
+    assert.equal(calculateNumber('SUBTRACT', 1.7, 0), 2);
+    assert.equal(calculateNumber('SUBTRACT', 0, 1.0), -1);
+    assert.equal(calculateNumber('SUBTRACT', 0, 1.3), -1);
+    assert.equal(calculateNumber('SUBTRACT', 0, 1.7), -2);
+    assert.equal(calculateNumber('SUBTRACT', 1.3, 0), 1);
+    assert.equal(calculateNumber('SUBTRACT', 0, 1.2), -1);
+    assert.equal(calculateNumber('SUBTRACT', 1.3, 1.3), 0);
+    assert.equal(calculateNumber('SUBTRACT', 1.7, 1.2), 1);
+    assert.equal(calculateNumber('SUBTRACT', 1.3, 1.8), -1);
+    assert.equal(calculateNumber('SUBTRACT', 1.6, 1.8), 0);
   });
   it('checks ouput with negative numbers', () => {
     assert.strictEqual(calculateNumber('SUBSTRACT', -1, 0), -1);
