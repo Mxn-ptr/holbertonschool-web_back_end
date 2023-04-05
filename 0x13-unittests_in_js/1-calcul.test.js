@@ -58,7 +58,7 @@ describe('calculateNumber with type == DIVIDE', () => {
   it('checks output with positive numbers', () => {
     assert.strictEqual(calculateNumber('DIVIDE', 4, 2), 2);
     assert.strictEqual(calculateNumber('DIVIDE', 10, 4), 2.5);
-    assert.strictEqual(calculateNumber('DIVIDE', 5.8, 2), 2);
+    assert.strictEqual(calculateNumber('DIVIDE', 5.8, 2), 3);
     assert.strictEqual(calculateNumber('DIVIDE', 4.5, 2.9), 1.6666666666666667);
     assert.strictEqual(calculateNumber('DIVIDE', 25, 3.2), 8.333333333333334);
     assert.strictEqual(calculateNumber('DIVIDE', 0.0, 2), 0);
