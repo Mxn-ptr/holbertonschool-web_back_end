@@ -1,6 +1,6 @@
 const Utils = {
   calculateNumber(type, a, b) {
-    if (!type) throw new TypeError('');
+    if (!type) throw new TypeError('missing type argument');
     switch (type) {
       case 'SUM':
         return Math.round(a) + Math.round(b);
