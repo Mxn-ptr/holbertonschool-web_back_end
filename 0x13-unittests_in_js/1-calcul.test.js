@@ -63,12 +63,12 @@ describe('calculateNumber with type == DIVIDE', () => {
     assert.strictEqual(calculateNumber('DIVIDE', -7.7, -3.2), 2.6666666666666665);
   });
   it('checks ouput with 0', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', 10, 0), Infinity);
-    assert.strictEqual(calculateNumber('DIVIDE', -5, 0), -Infinity);
-    assert.strictEqual(calculateNumber('DIVIDE', 4.3, 0), Infinity);
+    assert.strictEqual(calculateNumber('DIVIDE', 10, 0), 'Error');
+    assert.strictEqual(calculateNumber('DIVIDE', -5, 0), 'Error');
+    assert.strictEqual(calculateNumber('DIVIDE', 4.3, 0), 'Error');
   });
   it('check with wrong arguments', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', "a", 14.3), NaN);
+    assert.strictEqual(calculateNumber('DIVIDE', NaN, 2), NaN);
     assert.strictEqual(calculateNumber('DIVIDE', 2, NaN), NaN);
     assert.strictEqual(calculateNumber('DIVIDE', NaN, NaN), NaN);
   });
