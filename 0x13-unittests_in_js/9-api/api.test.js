@@ -13,7 +13,7 @@ describe('Index page', () => {
       }
     });
   });
-  if('test with a correct endpoint', (done) => {
+  it('test with a correct endpoint', (done) => {
     request('http://localhost:7865/cart/10', (error, response, body) => {
       if (response) {
         expect(response.statusCode).to.equal(200);
@@ -24,10 +24,10 @@ describe('Index page', () => {
       }
     });
   });
-  if('test with a wrong endpoint', (done) => {
+  it('test with a wrong endpoint', (done) => {
     request('http://localhost:7865/cart/wrong', (error, response, body) => {
       if (response) {
-        expect(response.statusCode).to.equal(400);
+        expect(response.statusCode).to.equal(404);
         done();
       }
     });
