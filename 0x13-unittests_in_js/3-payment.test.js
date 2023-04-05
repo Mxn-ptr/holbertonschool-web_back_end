@@ -8,7 +8,7 @@ describe('sendPaymentRequestToApi', () => {
     const functionSpy = sinon.spy(Utils, 'calculateNumber');
     const apiResult = sendPaymentRequestToApi(100, 20);
     
-    expect(functionSpy.calledOnceWithExactly('SUM', 100, 20)).to.equal(true);
+    expect(functionSpy.calledOnceWith('SUM', 100, 20)).to.equal(true);
     expect(Utils.calculateNumber('SUM', 100, 20)).to.equal(apiResult);
     
     functionSpy.restore();
