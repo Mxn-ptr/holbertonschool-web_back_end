@@ -21,7 +21,7 @@ describe('calculateNumber with type === SUM', () => {
     assert.strictEqual(calculateNumber('SUM', -1, 2.6), 2);
   });
   it('checks output with wrong argument', () => {
-    assert.strictEqual(calculateNumber('SUM', 'a', 8.4), NaN);
+    assert.strictEqual(calculateNumber('SUM', 8.4, NaN), NaN);
     assert.strictEqual(calculateNumber('SUM', NaN, 3.6), NaN);
     assert.strictEqual(calculateNumber('SUM', NaN, NaN), NaN);
   });
@@ -44,8 +44,8 @@ describe('calculateNumber with type === SUBSTRACT', () => {
     assert.strictEqual(calculateNumber('SUBSTRACT', -12, 14.3), -26);
   });
   it('checks with wrong argument', () => {
-    assert.strictEqual(calculateNumber('SUBSTRACT', "a", 14.3), NaN);
-    assert.strictEqual(calculateNumber('SUBSTRACT', 2, NaN), NaN);
+    assert.strictEqual(calculateNumber('SUBSTRACT', NaN, 2.2), NaN);
+    assert.strictEqual(calculateNumber('SUBSTRACT', 2.5, NaN), NaN);
     assert.strictEqual(calculateNumber('SUBSTRACT', NaN, NaN), NaN);
   });
 });
@@ -68,8 +68,8 @@ describe('calculateNumber with type == DIVIDE', () => {
     assert.strictEqual(calculateNumber('DIVIDE', 4.3, 0), 'Error');
   });
   it('check with wrong arguments', () => {
-    assert.strictEqual(calculateNumber('DIVIDE', NaN, 2), NaN);
-    assert.strictEqual(calculateNumber('DIVIDE', 2, NaN), NaN);
+    assert.strictEqual(calculateNumber('DIVIDE', NaN, 2.9), NaN);
+    assert.strictEqual(calculateNumber('DIVIDE', 2.9, NaN), NaN);
     assert.strictEqual(calculateNumber('DIVIDE', NaN, NaN), NaN);
   });
 });
