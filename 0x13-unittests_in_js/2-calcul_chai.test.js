@@ -63,9 +63,9 @@ describe('calculateNumber with type == DIVIDE', () => {
     expect(calculateNumber('DIVIDE', -7.7, -3.2)).to.equal(2.6666666666666665);
   });
   it('checks ouput with 0', () => {
-    expect(calculateNumber('DIVIDE', 10, 0)).to.equal(Infinity);
-    expect(calculateNumber('DIVIDE', -5, 0)).to.equal(-Infinity);
-    expect(calculateNumber('DIVIDE', 4.3, 0)).to.equal(Infinity);
+    expect(calculateNumber('DIVIDE', 10, 0)).to.equal('Error');
+    expect(calculateNumber('DIVIDE', -5, 0)).to.equal('Error');
+    expect(calculateNumber('DIVIDE', 4.3, 0)).to.equal('Error');
   });
   it('check with wrong arguments', () => {
     expect(calculateNumber('DIVIDE', "a", 14.3)).to.be.NaN;
