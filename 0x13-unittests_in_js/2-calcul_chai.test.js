@@ -3,7 +3,7 @@ const expect = require('chai').expect;
 
 describe('calculateNumber with type === SUM', () => {
   it('checks output with positive numbers', () => {
-    expect(calculateNumber('SUM', 0, 0)).to.equal(0);
+    expect(calculateNumber('SUM', 1.0, 0)).to.equal(1);
     expect(calculateNumber('SUM', 1, 2)).to.equal(3);
     expect(calculateNumber('SUM', 3, 5)).to.equal(8);
     expect(calculateNumber('SUM', 4, 7)).to.equal(11);
@@ -35,6 +35,8 @@ describe('calculateNumber with type === SUBTRACT', () => {
     expect(calculateNumber('SUBTRACT', 2.6, 2)).to.equal(1);
     expect(calculateNumber('SUBTRACT', 20.1, 8.8)).to.equal(11);
     expect(calculateNumber('SUBTRACT', 1, 9.1)).to.equal(-8);
+    expect(calculateNumber('SUBTRACT', 1, 9.1), -8);
+    expect(calculateNumber('SUBTRACT', 0.0, 5), -5);
   });
   it('checks ouput with negative numbers', () => {
     expect(calculateNumber('SUBTRACT', -1, 0)).to.equal(-1);
@@ -55,6 +57,7 @@ describe('calculateNumber with type == DIVIDE', () => {
     expect(calculateNumber('DIVIDE', 4, 2)).to.equal(2);
     expect(calculateNumber('DIVIDE', 10, 4)).to.equal(2.5);
     expect(calculateNumber('DIVIDE', 4.5, 2.9)).to.equal(1.6666666666666667);
+    expect(calculateNumber('DIVIDE', 25, 3.2)).to.equal(8.333333333333334);
     expect(calculateNumber('DIVIDE', 25, 3.2)).to.equal(8.333333333333334);
   });
   it('checks ouput with negative numbers', () => {
